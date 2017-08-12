@@ -1,0 +1,2 @@
+# Ignore build/ dir, make cmake stuff there
+build
