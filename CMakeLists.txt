@@ -12,3 +12,6 @@ CONFIGURE_FILE(
     "${V_CPP_UTILS_SRC_DIR}/VCppConfig.hpp.in"
     "${V_CPP_UTILS_OUTPUT_SRC_DIR}/VCppConfig.hpp"
 )
+
+# Add unit tests
+ADD_SUBDIRECTORY("tst")
