@@ -1,0 +1,3 @@
+# Basic project configuration
+CMAKE_MINIMUM_REQUIRED(VERSION 3.9.0)
+PROJECT(VCppUtils VERSION 0.0.1)
