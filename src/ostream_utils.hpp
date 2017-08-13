@@ -43,6 +43,13 @@ namespace VCppUtils
         
         return stream;
     }
+    
+    template <typename CharT, typename Traits = std::char_traits<CharT>>
+    typename std::basic_ostream<CharT, Traits>::pos_type get_stream_size(std::basic_ostream<CharT, Traits>& stream)
+    {
+        stream.seekp(0, std::ios::end);
+        return stream.tellp();
+    }
 }
 
 #endif

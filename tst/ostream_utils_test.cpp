@@ -50,3 +50,34 @@ TEST_CASE("Test basic join", TAGS)
         REQUIRE(result == expected);
     }
 }
+
+TEST_CASE("Test get basic size", TAGS)
+{
+    auto input = stringstream{};
+    
+    SECTION("With an empty stream")
+    {
+        auto result = get_stream_size(input);
+        
+        REQUIRE(result == 0);
+    }
+    
+    SECTION("With a single element in the stream")
+    {
+        input << 'a';
+        
+        auto result = get_stream_size(input);
+        
+        REQUIRE(result == 1);
+    }
+    
+    SECTION("With several elements in the stream")
+    {
+        auto const elements = string{"Hello world"};
+        input << elements;
+        
+        auto result = get_stream_size(input);
+        
+        REQUIRE(result == elements.size());
+    }
+}
