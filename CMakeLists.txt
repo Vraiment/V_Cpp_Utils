@@ -16,3 +16,10 @@ CONFIGURE_FILE(
 
 # Add unit tests
 ADD_SUBDIRECTORY("tst")
+
+# Define the library target
+FILE(GLOB V_CPP_UTILS_FILES
+    "${V_CPP_UTILS_SRC_DIR}/*.hpp"
+    "${V_CPP_UTILS_SRC_DIR}/*.cpp"
+)
+ADD_LIBRARY("${PROJECT_NAME}" "${V_CPP_UTILS_FILES}")
