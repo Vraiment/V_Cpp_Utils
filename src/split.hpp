@@ -56,6 +56,12 @@ namespace VCppUtils
         }
     }
     
+    template <typename Container, typename CharT, typename Traits = std::char_traits<CharT>, typename Allocator = std::allocator<CharT>>
+    void basic_split(Container& output, std::basic_string<CharT, Traits, Allocator> const& input, std::basic_string<CharT, Traits, Allocator> const& pattern)
+    {
+        basic_split(output, input, std::basic_regex<CharT>{pattern});
+    }
+    
     template <typename Container>
     void split(Container& output, std::string const& string, std::regex const& pattern)
     {
@@ -63,9 +69,21 @@ namespace VCppUtils
     }
     
     template <typename Container>
+    void split(Container& output, std::string const& string, std::string const& pattern)
+    {
+        basic_split(output, string, std::regex{pattern});
+    }
+    
+    template <typename Container>
     void wsplit(Container& output, std::wstring const& string, std::wregex const& pattern)
     {
         basic_split(output, string, pattern);
+    }
+    
+    template <typename Container>
+    void wsplit(Container& output, std::wstring const& string, std::wstring const& pattern)
+    {
+        basic_split(output, string, std::wregex{pattern});
     }
 }
 
